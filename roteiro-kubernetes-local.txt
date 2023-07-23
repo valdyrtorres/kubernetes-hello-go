@@ -1,0 +1,59 @@
+** Instalar o cliente kubernetes:
+kubectl
+https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/
+curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+Validando (opcional):
+curl -LO "https://dl.k8s.io/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl.sha256"
+echo "$(cat kubectl.sha256)  kubectl" | sha256sum --check
+
+*** Instalando de fato:
+sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
+
+kubectl version --client
+
+Or use this for detailed view of version:
+
+kubectl version --client --output=yaml
+
+
+** Instalar o kind
+go install sigs.k8s.io/kind@v0.20.0
+
+----------
+
+kind create cluster
+kubectl cluster-info --context kind-kind
+
+ls -l ~/.kube
+
+kubectl get nodes
+
+kind get clusters
+kind delete clusters kind
+kind get clusters
+kind create cluster --config=k8s/kind.yaml --name=fullcycle
+
+kubectl cluster-info --context kind-fullcycle
+
+kubectl cluster-info
+
+kubectl config get-clusters
+
+kubectl config use-context cluster-fulano-de-tal
+
+Obs: Descobri qual serviço usa a porta 80
+sudo lsof -i -P -n | grep LISTEN
+sudo netstat -tunap | grep :80
+sudo fuser 80/tcp
+sudo lsof -i tcp:80 -s tcp:listen
+
+sudo /etc/init.d/apache2 stop
+sudo systemctl disable apache2
+
+go run server.go
+docker build -t valdyrtorres/hello-go .
+docker run --rm -p 80:80 valdyrtorres/hello-go
+
+
+
+
