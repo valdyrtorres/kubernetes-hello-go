@@ -86,4 +86,14 @@ kubectl get deployments
 
 kubectl get replicasets
 
+kubectl rollout history deployment goserver
+
+Voltar a replicaset anterior (rollback)
+kubectl rollout undo deployment goserver
+
+kubectl rollout undo deployment goserver --to-revision=2
+
+kubectl describe deployment goserver
+---------------------------------------------------
+Service X -> Atua como um load balance de aplicativos
 
