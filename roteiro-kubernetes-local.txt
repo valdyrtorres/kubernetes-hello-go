@@ -53,7 +53,37 @@ sudo systemctl disable apache2
 go run server.go
 docker build -t valdyrtorres/hello-go .
 docker run --rm -p 80:80 valdyrtorres/hello-go
+--------------------------------------------------
+kubectl apply -f k8s/pod.yaml
+kubectl get pod
 
+kubectl port-forward pod/goserver 8000:80
 
+kubectl delete pod goserver
+
+kubectl apply -f k8s/replicaset.yaml
+
+kubectl get pods
+
+kubectl get replicasets
+
+kubectl delete pod goserver-vhp82
+
+kubectl describe pod goserver-fw22w
+
+kubectl delete pod goserver-fw22w
+
+kubectl describe pod goserver-q4w28 
+
+ATENÇÃO: O replicaset tem um problema que quando você atualiza o yaml, ele não contempla a nova versão, 
+a não ser que você delete um pod, aí outro é criado com a nova configuração. Mas, tem como resolver isso: Objeto Deployment
+
+Deployment -> ReplicaSet -> Pod
+
+kubectl apply -f k8s/deployment.yaml
+
+kubectl get deployments
+
+kubectl get replicasets
 
 
