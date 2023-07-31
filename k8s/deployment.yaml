@@ -16,5 +16,5 @@ spec:
     spec:
       containers:
         - name: goserver
-          image: "valdyrtorres/hello-go:v2"
+          image: "valdyrtorres/hello-go:latest"
    

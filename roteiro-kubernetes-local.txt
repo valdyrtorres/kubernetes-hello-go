@@ -96,4 +96,13 @@ kubectl rollout undo deployment goserver --to-revision=2
 kubectl describe deployment goserver
 ---------------------------------------------------
 Service X -> Atua como um load balance de aplicativos
+kubectl apply -f k8s/service.yaml
+
+kubectl get services ou kubectl get svc
+
+kubectl port-forward svc/goserver-service 8000:80
+
+Listagem das api's do kubernetes:
+kubectl proxy --port=8080
+
 
