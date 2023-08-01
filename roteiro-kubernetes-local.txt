@@ -105,4 +105,10 @@ kubectl port-forward svc/goserver-service 8000:80
 Listagem das api's do kubernetes:
 kubectl proxy --port=8080
 
+kubectl get svc
+
+kubectl delete svc goserver-service
+
+
+
 
