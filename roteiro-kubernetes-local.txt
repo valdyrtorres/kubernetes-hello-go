@@ -138,4 +138,23 @@ docker build -t valdyrtorres/hello-go:v5.1 .
 docker push valdyrtorres/hello-go:v5.1
 kubectl apply -f k8s/deployment.yaml
 kubectl port-forward svc/goserver-service 9000:80
+----------------------------------
+Secret:
+docker build -t valdyrtorres/hello-go:v5.3 .
+docker push valdyrtorres/hello-go:v5.3
+Todos os secrets dentro de secret.yaml devem estar em base64
+O comando abaixo em bash linux te dá o correspondente em base64:
+echo "valdir" | base64
+echo "1234567" | base64
 
+Criando o secret:
+kubectl apply -f k8s/secret.yaml
+
+kubectl apply -f k8s/deployment.yaml
+kubectl port-forward svc/goserver-service 9000:80
+
+Verificando:
+kubectl get pods
+kubectl exec -it goserver-65684d9556-n2g45 -- bash
+echo $USER
+Retorna valdir

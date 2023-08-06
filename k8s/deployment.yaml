@@ -16,11 +16,14 @@ spec:
     spec:
       containers:
         - name: goserver
-          image: "valdyrtorres/hello-go:v5.2"
+          image: "valdyrtorres/hello-go:v5.3"
           #Evitando fazer para muitas variaveis de ambiente
           envFrom:
             - configMapRef:
-                name: goserver-env  
+                name: goserver-env
+            - secretRef:
+                name: goserver-secret
+
           volumeMounts:
             - mountPath: "/go/myfamily"
               name: config
