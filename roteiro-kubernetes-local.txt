@@ -109,9 +109,15 @@ kubectl get svc
 
 kubectl delete svc goserver-service
 -----------------------------------------
+VARIÁVEIS DE AMBIENTE
 kubectl apply -f k8s/deployment.yaml
 kubectl port-forward svc/goserver-service 9000:80
+------------------------------------------
+Arquivo de configuração com os dados somente:
+kubectl apply -f k8s/configmap-env.yaml
+kubectl apply -f k8s/deployment.yaml
 
+kubectl port-forward svc/goserver-service 9000:80
 
 
 

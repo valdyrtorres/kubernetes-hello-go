@@ -17,9 +17,21 @@ spec:
       containers:
         - name: goserver
           image: "valdyrtorres/hello-go:v4"
-          env:
-            - name: NAME
-              value: "Valdir"
-            - name: AGE
-              value: "54"          
+          #Evitando fazer para muitas variaveis de ambiente
+          envFrom:
+            - configMapRef:
+                name: goserver-env
+
+          # env:
+          #   - name: NAME
+          #     valueFrom: 
+          #       configMapKeyRef:
+          #         name: goserver-env
+          #         key: NAME
+    
+          #   - name: AGE
+          #     valueFrom: 
+          #       configMapKeyRef:
+          #         name: goserver-env
+          #         key: AGE         
    
