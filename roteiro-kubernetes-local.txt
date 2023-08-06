@@ -118,6 +118,24 @@ kubectl apply -f k8s/configmap-env.yaml
 kubectl apply -f k8s/deployment.yaml
 
 kubectl port-forward svc/goserver-service 9000:80
+-------------------------------------------------
+Dinâmico:
+docker build -t valdyrtorres/hello-go:v5 .
+kubectl apply -f k8s/configmap-family.yaml
+kubectl apply -f k8s/deployment.yaml
+kubectl get pods
+kubectl port-forward svc/goserver-service 9000:80
 
+kubectl delete deploy goserver
+kubectl apply -f k8s/deployment.yaml
 
+Acessando o POD:
+kubectl exec -it goserver-75b9c9b777-447pq -- bash
+
+kubectl logs goserver-75b9c9b777-447pq
+
+docker build -t valdyrtorres/hello-go:v5.1 .
+docker push valdyrtorres/hello-go:v5.1
+kubectl apply -f k8s/deployment.yaml
+kubectl port-forward svc/goserver-service 9000:80
 
