@@ -108,6 +108,9 @@ kubectl proxy --port=8080
 kubectl get svc
 
 kubectl delete svc goserver-service
+-----------------------------------------
+kubectl apply -f k8s/deployment.yaml
+kubectl port-forward svc/goserver-service 9000:80
 
 
 
