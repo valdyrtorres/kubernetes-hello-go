@@ -170,5 +170,15 @@ livenessProbe
 kubectl delete deploy goserver
 kubectl apply -f k8s/deployment.yaml && watch -h1 kubectl get pods
 equivalente no Powershell:
-kubectl apply -f k8s/deployment.yaml ; while (1) {kubectl get pods; cls}
+kubectl apply -f k8s/deployment.yaml ; while (1) {kubectl get pods; sleep 2; cls}
+-------------------------------------------------
+readiness
+kubectl describe pod goserver-5fc767876c-v2hpx
+docker build -t valdyrtorres/hello-go:v5.5 .
+kubectl delete deploy goserver
+kubectl delete deploy goserver; kubectl apply -f k8s/deployment.yaml
+kubectl port-forward svc/goserver-service 9000:80
+
+kubectl delete deploy goserver
+kubectl apply -f k8s/deployment.yaml ; while (1) {kubectl get pods; sleep 2; cls}
 
