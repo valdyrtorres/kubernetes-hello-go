@@ -158,3 +158,10 @@ kubectl get pods
 kubectl exec -it goserver-65684d9556-n2g45 -- bash
 echo $USER
 Retorna valdir
+-------------------------------------------------
+HEALTH
+docker build -t valdyrtorres/hello-go:v5.4 .
+docker push valdyrtorres/hello-go:v5.4
+kubectl delete deploy goserver
+kubectl apply -f k8s/deployment.yaml
+kubectl port-forward svc/goserver-service 9000:80
