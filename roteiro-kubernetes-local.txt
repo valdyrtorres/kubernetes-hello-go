@@ -165,3 +165,10 @@ docker push valdyrtorres/hello-go:v5.4
 kubectl delete deploy goserver
 kubectl apply -f k8s/deployment.yaml
 kubectl port-forward svc/goserver-service 9000:80
+-------------------------------------------------
+livenessProbe
+kubectl delete deploy goserver
+kubectl apply -f k8s/deployment.yaml && watch -h1 kubectl get pods
+equivalente no Powershell:
+kubectl apply -f k8s/deployment.yaml ; while (1) {kubectl get pods; cls}
+
