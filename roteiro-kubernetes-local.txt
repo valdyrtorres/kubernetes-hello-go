@@ -181,4 +181,8 @@ kubectl port-forward svc/goserver-service 9000:80
 
 kubectl delete deploy goserver
 kubectl apply -f k8s/deployment.yaml ; while (1) {kubectl get pods; sleep 2; cls}
-
+---------------------------------
+Combinando Liveness e Readdiness
+kubectl apply -f k8s/deployment.yaml ; while (1) {kubectl get pods; sleep 2; cls}
+docker build -t valdyrtorres/hello-go:v5.6 .
+docker push valdyrtorres/hello-go:v5.6
