@@ -168,6 +168,7 @@ kubectl port-forward svc/goserver-service 9000:80
 -------------------------------------------------
 livenessProbe
 kubectl delete deploy goserver
+NO LINUX:
 kubectl apply -f k8s/deployment.yaml && watch -h1 kubectl get pods
 equivalente no Powershell:
 kubectl apply -f k8s/deployment.yaml ; while (1) {kubectl get pods; sleep 2; cls}
@@ -186,3 +187,6 @@ Combinando Liveness e Readdiness
 kubectl apply -f k8s/deployment.yaml ; while (1) {kubectl get pods; sleep 2; cls}
 docker build -t valdyrtorres/hello-go:v5.6 .
 docker push valdyrtorres/hello-go:v5.6
+---------------------------------
+Trabalhando com startupProbe
+kubectl apply -f k8s/deployment.yaml ; while (1) {kubectl get pods; sleep 2; cls}
