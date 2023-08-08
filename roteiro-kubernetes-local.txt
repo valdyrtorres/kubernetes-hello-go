@@ -190,3 +190,14 @@ docker push valdyrtorres/hello-go:v5.6
 ---------------------------------
 Trabalhando com startupProbe
 kubectl apply -f k8s/deployment.yaml ; while (1) {kubectl get pods; sleep 2; cls}
+---------------------------------
+HPA - Horizontal Pointing Autoscaling
+kubectl apply -f k8s/metrics-server.yaml
+kubectl get apiservices
+kubectl delete -f k8s/metrics-server.yaml 
+
+kubectl describe deployment metrics-server -n metrics-server
+
+kubectl logs metrics-server- -n metrics-server
+
+kubectl patch deployment metrics-server -n kube-system --type 'json' -p '[{"op": "add", "path": "/spec/template/spec/containers/0/args/-", "value": "--kubelet-insecure-tls"}]'
