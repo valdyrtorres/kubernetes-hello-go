@@ -197,10 +197,14 @@ kubectl apply -f k8s/metrics-server.yaml
 kubectl get apiservices
 kubectl delete -f k8s/metrics-server.yaml 
 
-kubectl describe deployment metrics-server -n metrics-server
+kubectl describe deployment metrics-server -n kube-system
 
 kubectl get pods -n kube-system
 
-kubectl logs metrics-server- -n metrics-server
+kubectl logs metrics-server-75f45b4dd4-96p8b -n kube-system
 
 kubectl patch deployment metrics-server -n kube-system --type 'json' -p '[{"op": "add", "path": "/spec/template/spec/containers/0/args/-", "value": "--kubelet-insecure-tls"}]'
+-----------------------------------
+Deployment com resources
+kubectl apply -f k8s/deployment.yaml 
+kubectl get pods
