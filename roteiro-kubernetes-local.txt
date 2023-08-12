@@ -191,12 +191,15 @@ docker push valdyrtorres/hello-go:v5.6
 Trabalhando com startupProbe
 kubectl apply -f k8s/deployment.yaml ; while (1) {kubectl get pods; sleep 2; cls}
 ---------------------------------
+Aparentemente o metrics-server não funciona bem por trás um proxy
 HPA - Horizontal Pointing Autoscaling
 kubectl apply -f k8s/metrics-server.yaml
 kubectl get apiservices
 kubectl delete -f k8s/metrics-server.yaml 
 
 kubectl describe deployment metrics-server -n metrics-server
+
+kubectl get pods -n kube-system
 
 kubectl logs metrics-server- -n metrics-server
 
