@@ -230,3 +230,12 @@ while (1) {kubectl get hpa; sleep 2; cls}
 watch -n1 kubectl get hpa
 
 kubectl apply -f k8s/deployment.yaml
+----------------------------------------
+Entendendo volumes persistentes
+- StorageClass
+#DStorageClass -> AWS
+Claim -> StorageClass -> Disponibilizar o espaco que eu preciso - BlockStorage
+
+kubectl get storageclass
+kubectl config get-contexts
+
