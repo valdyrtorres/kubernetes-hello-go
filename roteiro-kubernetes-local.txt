@@ -248,3 +248,14 @@ Claim -> StorageClass -> Disponibilizar o espaco que eu preciso - BlockStorage
 kubectl get storageclass
 kubectl config get-contexts
 
+kubectl apply -f k8s/pvc.yaml
+kubectl get pvc
+
+kubectl apply -f k8s/deployment.yaml
+kubectl get pvc
+
+kubectl get po
+kubectl exec -it goserver-5cbbd7db8d-dlgfh -- bash
+kubectl delete pod goserver-5cbbd7db8d-dlgfh
+kubectl get po
+kubectl exec -it goserver-5cbbd7db8d-9whm5 -- bash
