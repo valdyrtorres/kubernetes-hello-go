@@ -259,3 +259,23 @@ kubectl exec -it goserver-5cbbd7db8d-dlgfh -- bash
 kubectl delete pod goserver-5cbbd7db8d-dlgfh
 kubectl get po
 kubectl exec -it goserver-5cbbd7db8d-9whm5 -- bash
+-------------------------------------
+CRIANDO STATEFULSET
+kubectl apply -f k8s/statefulset.yaml
+kubectl delete -f k8s/statefulset.yaml
+kubectl get pods
+kubectl logs mysql-f99c5456f-7snhz
+
+kubectl apply -f k8s/statefulset.yaml
+kubectl get pods
+
+kubectl delete deploy mysql 
+
+kubectl apply -f k8s/statefulset.yaml
+kubectl get pods
+
+kubectl delete -f k8s/statefulset.yaml
+kubectl apply -f k8s/statefulset.yaml
+
+kubectl scale statefulset mysql --replicas=5
+
