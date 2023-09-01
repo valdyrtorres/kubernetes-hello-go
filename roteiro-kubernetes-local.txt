@@ -278,4 +278,24 @@ kubectl delete -f k8s/statefulset.yaml
 kubectl apply -f k8s/statefulset.yaml
 
 kubectl scale statefulset mysql --replicas=5
+-----------------------
+Aula - Criando headless service
+kubectl delete statefulset mysql
+kubectl apply -f k8s/mysql-service-h.yaml
 
+kubectl get pods
+kubectl get svc
+
+kubectl delete service mysql-h
+kubectl apply -f k8s/mysql-service-h.yaml
+kubectl get svc
+
+kubectl exec -it goserver-5cbbd7db8d-pr7cp -- bash
+ping mysql-h
+
+O headless server permite que eu consiga chamar exatamente o pod de mysql que eu quero:
+ping mysql-h
+ping mysql-0.mysql-h
+ping mysql-3.mysql-h
+Ex de saída: 
+64 bytes from mysql-3.mysql-h.default.svc.cluster.local (10.244.2.4): icmp_seq=3 ttl=62 time=0.115 ms
