@@ -309,3 +309,11 @@ kubectl get pvc
 Teste:
 kubectl delete pod mysql-1
 kubectl get pvc
+--------------------------
+Vale a pena salvar o meu banco de dados na estrutura do kubernetes?
+Opinião do Wesley: Para aplicações críticas, hoje é mais seguro deixar em um RDS por exemplo fora do kubernetes em um lugar gerenciado
+Isso é mais por criticidade de banco de dados e não pelo kubernetes
+--------------------------
+Ingres - serviço do kubernetes que é o ponto único de entrada da tua aplicação e faz o roteamento do nosso serviço
+
+
