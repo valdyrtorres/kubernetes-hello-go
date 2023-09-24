@@ -441,3 +441,11 @@ rolebinding.rbac.authorization.k8s.io/server-read-bind created
 
 kubectl apply -f deployment.yaml
 
+kubectl get pods
+
+kubectl describe pod server-6676fff8d4-nzc5q
+
+Somente Role é em nível de namespace
+ClusterRole é em nível de cluster
+
+
