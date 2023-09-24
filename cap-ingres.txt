@@ -1,0 +1,31 @@
+VEJA O ARQUIVO roteiro-kubernetes-local.txt PARA MAIS DETALHES:
+gcloud container clusters get-credentials curso-fullcycle --zone us-central1-c --project projeto-fullcycle-398320
+
+(base) valdir@valdir-debian:~/devcode/fullcycle/kubernetes$ kubectl get nodes
+NAME                                             STATUS   ROLES    AGE   VERSION
+gke-curso-fullcycle-default-pool-b6d440c5-98dw   Ready    <none>   16d   v1.27.3-gke.100
+(base) valdir@valdir-debian:~/devcode/fullcycle/kubernetes$ 
+
+Instalar o gcloud CLI e executar o comando:
+gcloud auth login
+gcloud config set project projeto-fullcycle-398320
+gcloud components install gke-gcloud-auth-plugin
+gcloud container clusters get-credentials curso-fullcycle --zone us-central1-c --project projeto-fullcycle-398320
+
+kubectl apply -f k8s/
+
+kubectl get pods
+
+kubectl logs goserver-5cbbd7db8d-4x7z8
+
+kubectl exec -it goserver-5cbbd7db8d-4x7z8 -- bash
+
+helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
+helm repo update
+helm install ingress-nginx ingress-nginx/ingress-nginx
+
+Verificar instalação:
+kubectl get svc
+kubectl get pod
+
+kubectl apply -f k8s/ingress.yaml
