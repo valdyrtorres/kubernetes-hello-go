@@ -1,0 +1,18 @@
+1 - criar o cluster eks
+2 - conectar o kubectl com o cluster eks adicionando no kube config
+kubectl config get-clusters
+3 - Criar um node
+kubectl get nodes -n eks-sample-app
+
+kubectl get all -n eks-sample-app
+
+similaridades com o exercício feito no gcp:
+gke-curso-fullcycle-default-pool-52561bc3-ztkn = ip-10-0-1-141.ec2.internal 
+
+kubectl apply -f k8s-eks/
+
+kubectl get pods
+
+kubectl get svc
+
+

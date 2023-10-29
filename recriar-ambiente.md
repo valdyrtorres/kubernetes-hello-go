@@ -4,6 +4,7 @@ Iniciar ambiente kubernetes
 kind create cluster --config=k8s/kind.yaml --name=fullcycle
 kubectl cluster-info --context kind-fullcycle
 kind get clusters
+kubectl config get-clusters
 
 docker ps 
 kubectl apply -f k8s/deployment.yaml
