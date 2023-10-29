@@ -1,0 +1,15 @@
+Similaridades:
+gke-curso-fullcycle-default-pool-52561bc3-ztkn = arn:aws:eks:us-east-1:753890831307:cluster/eks-lab-cluster-01
+
+- Conectar no kubectl
+gcloud container clusters get-credentials cluster-1 --zone us-central1-c --project projeto-fullcycle-398320
+
+kubectl get nodes
+
+kubectl apply -f k8s/
+
+kubectl get pods
+
+kubectl delete -f k8s/
+
+kubectl get svc
