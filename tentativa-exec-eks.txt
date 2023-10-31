@@ -1,3 +1,6 @@
+https://www.youtube.com/watch?v=p6xDCz00TxU
+https://docs.aws.amazon.com/eks/latest/userguide/sample-deployment.html
+
 Similaridades:
 gke-curso-fullcycle-default-pool-52561bc3-ztkn = arn:aws:eks:us-east-1:753890831307:cluster/eks-lab-cluster-01
 
